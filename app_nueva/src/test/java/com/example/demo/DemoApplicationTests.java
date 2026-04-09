@@ -1,10 +1,10 @@
-package com.example.hola_mundo_devops;
+package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HolaMundoDevopsApplicationTests {
+class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {
