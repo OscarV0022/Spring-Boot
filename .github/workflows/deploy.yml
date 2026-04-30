@@ -1,0 +1,26 @@
+name: CD - Deploy to EC2
+
+# Este proceso se dispara cuando hacés un MERGE o PUSH a la rama MAIN
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy Application
+    runs-on: self-hosted # <--- Esto le dice: "Buscá mi Runner en la Instancia 3"
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Pull Image and Run
+        env:
+          # Aquí jalamos la IP que Terraform guardó en los secretos de GitHub
+          REGISTRY_IP: ${{ secrets.REGISTRY_IP }}
+        run: |
+          # 1. Bajamos la imagen fresca de la Instancia 2
+          docker-compose pull
+          # 2. Reiniciamos el contenedor con la nueva imagen
+          docker-compose up -d
