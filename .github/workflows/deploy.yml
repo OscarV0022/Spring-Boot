@@ -20,7 +20,7 @@ jobs:
           # Aquí jalamos la IP que Terraform guardó en los secretos de GitHub
           REGISTRY_IP: ${{ secrets.REGISTRY_IP }}
         run: |
-          # 1. Bajamos la imagen fresca de la Instancia 2
-          docker-compose pull
-          # 2. Reiniciamos el contenedor con la nueva imagen
-          docker-compose up -d
+          # 1. Bajamos la imagen fresca de la Instancia 2 (Usando V2)
+          docker compose pull
+          # 2. Reiniciamos el contenedor con la nueva imagen (Usando V2)
+          docker compose up -d
