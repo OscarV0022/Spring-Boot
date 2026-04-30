@@ -2,12 +2,20 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
+@RestController
 public class DemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
+    @GetMapping("/")
+    public String home() {
+        return "<h1 style='color:green;'>✅ ¡ESTÁ VIVA!</h1>" +
+               "<p>Oscar, si ves esto en la IP de AWS, ya podés ir a celebrar.</p>";
+    }
 }
