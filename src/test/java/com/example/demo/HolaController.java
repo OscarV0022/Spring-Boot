@@ -7,9 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class HolaController {
 
     @GetMapping("/")
-    public String index() {
-        return "<h1>🚀 Servidor Spring Boot Activo</h1>" +
-               "<p>Desplegado automáticamente con <b>Jenkins, Docker y Terraform</b>.</p>" +
-               "<p>Parcial de Oscar - 4to Año Ingeniería en Sistemas</p>";
+    public String home() {
+        return "<h1>🚀 ¡Despliegue Exitoso!</h1>" +
+               "<p>Esta aplicación de Spring Boot fue desplegada automáticamente usando:</p>" +
+               "<ul>" +
+               "  <li><b>Terraform:</b> Para la infraestructura en AWS.</li>" +
+               "  <li><b>Jenkins:</b> Para el CI y subir al Registry.</li>" +
+               "  <li><b>GitHub Actions:</b> Para el CD con Runner propio.</li>" +
+               "</ul>" +
+               "<p><b>Estudiante:</b> Oscar - 4to Año Ingeniería</p>";
     }
 }
