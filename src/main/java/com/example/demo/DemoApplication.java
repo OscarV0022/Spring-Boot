@@ -15,7 +15,6 @@ public class DemoApplication {
 
     @GetMapping("/")
     public String home() {
-        return "<h1 style='color:green;'>✅ ¡ESTÁ VIVA!</h1>" +
-               "<p>Oscar, si ves esto en la IP de AWS, ya podés ir a celebrar.</p>";
+        return "<h1 style='color:green;'>Hola mundo</h1>";
     }
 }
