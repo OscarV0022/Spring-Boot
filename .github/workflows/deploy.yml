@@ -1,6 +1,5 @@
 name: CD - Deploy to EC2
 
-# Este proceso se dispara cuando hacés un MERGE o PUSH a la rama MAIN
 on:
   push:
     branches:
@@ -9,7 +8,7 @@ on:
 jobs:
   deploy:
     name: Deploy Application
-    runs-on: self-hosted # <--- Esto le dice: "Buscá mi Runner en la Instancia 3"
+    runs-on: self-hosted 
     
     steps:
       - name: Checkout Code
@@ -17,7 +16,6 @@ jobs:
 
       - name: Pull Image and Run
         env:
-          # Aquí jalamos la IP que Terraform guardó en los secretos de GitHub
           REGISTRY_IP: ${{ secrets.REGISTRY_IP }}
         run: |
           # 1. Bajamos la imagen fresca de la Instancia 2 (Usando V2)
